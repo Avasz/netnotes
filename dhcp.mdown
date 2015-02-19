@@ -86,23 +86,23 @@ or
 
 ###9. Additional stuffs
 
-- Create a dhcpd.leases file, it is not createdby default.  
+a. Create a dhcpd.leases file, it is not createdby default.  
 
 
-	```sudo touch /var/lib/dhcpd/dhcpd.leases``` 
+	sudo touch /var/lib/dhcpd/dhcpd.leases
 
 
-- Deny declines to prevent from DoS attack.  
+b. Deny declines to prevent from DoS attack.  
 
 	
-	```deny declines;```
+	deny declines;
 
-- The following stuffs should be valid and correct, else it won't work
+c. The following stuffs should be valid and correct, else it won't work
 
 
-	```option domain-name  
-	option domain-name-server  
-	option routers```
+	option domain-name  
+	option domain-name-server    
+        option routers
 
 ###10. Final configuration file
 
@@ -124,6 +124,28 @@ or
 ###11. Binding IP address and clients
 *Adding blocks like these to dhcpd.conf*  
 
+	host admin_pc {
+	hardware ethernet 00:99:88:77:44:33;
+	fixed-address 192.168.1.24;
+	}
+
+Thus, example configuration file may look like:  
+
+	ddns-style-update none;
+	authorative;
+	deny declines;
+	option domain-name "yourmachine";
+	option domain-name-servers 8.8.8.8, 8.8.4.4;
+	default-lease-time 3600;
+	max-lease-time 4500;
+
+	subnet 192.168.1.0 netmask 255.55.255.0 {
+	range 192.168.1.10 192.168.1.250;
+	option subnet-mask 255.255.255.0;
+	option broadcast-address 192.168.1.255;
+	option routers 192.168.1.254;
+	}
+	
 	host admin_pc {
 	hardware ethernet 00:99:88:77:44:33;
 	fixed-address 192.168.1.24;
