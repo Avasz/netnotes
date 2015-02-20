@@ -100,9 +100,9 @@ or
 - The following stuffs should be valid and correct, else it won't work
 
 
-	option domain-name
+	```option domain-name
 	option domain-name-server
-	option routers
+	option routers```
 
 ###10. Final configuration file
 
