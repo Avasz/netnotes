@@ -89,13 +89,13 @@ or
 - Create a dhcpd.leases file, it is not createdby default.  
 
 
-	sudo touch /var/lib/dhcpd/dhcpd.leases 
+	```sudo touch /var/lib/dhcpd/dhcpd.leases``` 
 
 
 - Deny declines to prevent from DoS attack.  
 
 	
-	deny declines;
+	```deny declines;```
 
 - The following stuffs should be valid and correct, else it won't work
 
