@@ -1,7 +1,7 @@
 # netnotes
 Notes taken during reading stuffs about Networking
 
-###1. DHCP
+###1. [DHCP](https://github.com/Avasz/netnotes/blob/master/dhcp.mdown)
 It includes some basic stuffs about DHCP configuration with isc-dhcp-server. It also has a simple sample dhcpd.conf file that can be used with little modification.
 Stuffs it covers:  
 
