@@ -60,7 +60,7 @@ Overview of a sample and simple dhcpd.conf file.
 
 ###6. Configuration
 
-	subnet 192.168.1.0 netmask 255.55.255.0 {
+	subnet 192.168.1.0 netmask 255.255.255.0 {
 	range 192.168.1.10 192.168.1.250;
 	option subnet-mask 255.255.255.0;
 	option broadcast-address 192.168.1.255;
