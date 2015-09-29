@@ -21,6 +21,5 @@ libnl-3-dev lissl-dev libnl-genl-3 (both dev and normal)
 ##6. Other failures
 * In case failure of "nl80211" saying "undefined reference bla bla" then uncommenting line "#CONFIG_LIBNL32=y" in .config may help
 
-##7. make, make install, run
-* Check sample hostap.conf in this repo.
-* Start ap with " hostapd hostap.conf "
+##7. Other failures
+* Uncomment CONFIG_IEEE80211N=y from .config if you want support for wireless "N" mode.
