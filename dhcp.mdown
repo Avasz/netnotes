@@ -131,7 +131,7 @@ c. The following stuffs should be valid and correct, else it won't work
 
 Thus, example configuration file may look like:  
 
-	ddns-style-update none;
+	ddns-update-style none;
 	authorative;
 	deny declines;
 	option domain-name "yourmachine";
