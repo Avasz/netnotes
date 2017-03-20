@@ -1,4 +1,4 @@
-#DHCP
+# DHCP
 
 A DHCP server is the one that assigns dynamic IP addresses to the clients connected with its network. If a DHCP server is running and is properly configured then the clients joining the network will automatically be assigned with a valid IP address. If there is no DHCP server running, then clients have to manually assign static IP, netmask, subnet, gateway etc. for their machines.   
 
@@ -35,30 +35,30 @@ In general the syntax is:
 ___
 Overview of a sample and simple dhcpd.conf file.  
 
-###1. Prevent DHCP server from receiving DNS info from client.
+### 1. Prevent DHCP server from receiving DNS info from client.
 
 	ddns-update-style none; 
 	
 *Security feature*  
 
-###2.  Set a domain name & name server
+### 2.  Set a domain name & name server
 
 	option domain-name "yourmachinename";
 
-###3. DNS server
+### 3. DNS server
 
 	option domain-name-servers 8.8.8.8, 8.8.4.4;
 
-###4. Lease time.  
+### 4. Lease time.  
 *It is the time assigned to the client who does not request for specific lease time. It is in seconds.*  
 
 	default-lease-time 2000;  
 	max-lease-time 3600;
 
-###5. Authorative
+### 5. Authorative
 *Authorative indicates that the server should send DHCPNACK to misconfigured clients*
 
-###6. Configuration
+### 6. Configuration
 
 	subnet 192.168.1.0 netmask 255.255.255.0 {
 	range 192.168.1.10 192.168.1.250;
@@ -68,7 +68,7 @@ Overview of a sample and simple dhcpd.conf file.
 	}
 
 
-###7. Check syntax of dhcpd.conf file
+### 7. Check syntax of dhcpd.conf file
 
 	dhcpd -t  
 
@@ -76,7 +76,7 @@ or
 
 	dhcpd -t /path/to/dhcpd.conf
 
-###8. Start/Stop/Restart DHCP server
+### 8. Start/Stop/Restart DHCP server
 
 	service isc-dhcp-server start
 	service isc-dhcp-server stop
@@ -84,7 +84,7 @@ or
 	service isc-dhcp-server status
 
 
-###9. Additional stuffs
+### 9. Additional stuffs
 
 a. Create a dhcpd.leases file, it is not createdby default.  
 
@@ -104,7 +104,7 @@ c. The following stuffs should be valid and correct, else it won't work
 	option domain-name-server    
         option routers
 
-###10. Final configuration file
+### 10. Final configuration file
 
 	ddns-style-update none;
 	authorative;
@@ -121,7 +121,7 @@ c. The following stuffs should be valid and correct, else it won't work
 	option routers 192.168.1.254;
 	}
 
-###11. Binding IP address and clients
+### 11. Binding IP address and clients
 *Adding blocks like these to dhcpd.conf*  
 
 	host admin_pc {
@@ -151,7 +151,7 @@ Thus, example configuration file may look like:
 	fixed-address 192.168.1.24;
 	}
 
-###12. Auto starting DHCP server on boot  
+### 12. Auto starting DHCP server on boot  
 It actually depends on your distro.  
 For ubuntu,mint,debian *(not sure if all works in all, but at least one should work)*  etc you may use: 
 		
@@ -173,3 +173,8 @@ or
 For arch linux you can:
 
 	systemctl enable dhcpd
+	
+**UPDATE**
+`systemctl start isc-dhcp-server` to start dhcp server
+`systemctl enable isc-dhcp-server` to auto start dhcp server at boot
+
