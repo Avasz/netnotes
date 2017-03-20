@@ -106,7 +106,7 @@ c. The following stuffs should be valid and correct, else it won't work
 
 ### 10. Final configuration file
 
-	ddns-style-update none;
+	ddns-update-style none;
 	authorative;
 	deny declines;
 	option domain-name "yourmachine";
@@ -114,7 +114,7 @@ c. The following stuffs should be valid and correct, else it won't work
 	default-lease-time 3600;
 	max-lease-time 4500;
 
-	subnet 192.168.1.0 netmask 255.55.255.0 {
+	subnet 192.168.1.0 netmask 255.255.255.0 {
 	range 192.168.1.10 192.168.1.250;
 	option subnet-mask 255.255.255.0;
 	option broadcast-address 192.168.1.255;
@@ -174,7 +174,7 @@ For arch linux you can:
 
 	systemctl enable dhcpd
 	
-**UPDATE**
-`systemctl start isc-dhcp-server` to start dhcp server
-`systemctl enable isc-dhcp-server` to auto start dhcp server at boot
+**UPDATE**  
+`systemctl start isc-dhcp-server` to start dhcp server  
+`systemctl enable isc-dhcp-server` to auto start dhcp server at boot  
 
