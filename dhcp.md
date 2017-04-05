@@ -128,6 +128,13 @@ c. The following stuffs should be valid and correct, else it won't work
 	hardware ethernet 00:99:88:77:44:33;
 	fixed-address 192.168.1.24;
 	}
+	
+*To deny IP address we can do the following*
+
+	host client_nam {
+	hardware ethernet 00:11:22:33:44:44;
+	ignore booting;
+	}
 
 Thus, example configuration file may look like:  
 
